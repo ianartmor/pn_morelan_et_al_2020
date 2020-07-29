@@ -1,0 +1,8 @@
+source("Scripts/01_setup.R")
+source("Scripts/02_map.R")
+source("Scripts/03_climate.R")
+source("Scripts/04_fruit_maturity.R")
+source("Scripts/05_alpha_diversity.R")
+source("Scripts/06_beta_diversity.R")
+source("Scripts/07_core_analyses.R")
+source("Scripts/08_differential_abundance.R")
