@@ -1,5 +1,4 @@
 source("Scripts/01_setup.R")
-source("Scripts/02_map.R")
 source("Scripts/03_climate.R")
 source("Scripts/04_fruit_maturity.R")
 source("Scripts/05_alpha_diversity.R")
