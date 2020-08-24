@@ -1,9 +1,6 @@
 
 # download maps
 # google map API key required
-# this script is for demonstration purpose only and will not work. our partners have chosen not to 
-# reveal the exact locations of their vineyards
-
 ca_or <- get_map(location = "Sacramento", zoom = 5, maptype = "terrain-background")
 norcal_zoom <- get_map(location = "Sonoma", zoom = 8, maptype = "terrain-background")
 
