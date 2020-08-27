@@ -1,6 +1,16 @@
 
+#library(RColorBrewer)
+#library(shades)
+#library(tidyverse)
+#library(ggmap)
+#library(ggrepel)
+#library(ggsn)
+#library(patchwork)
+#source("setup.R")
+
 # download maps
-# google map API key required
+# google map API key required: https://cran.r-project.org/web/packages/ggmap/readme/README.html 
+
 ca_or <- get_map(location = "Sacramento", zoom = 5, maptype = "terrain-background")
 norcal_zoom <- get_map(location = "Sonoma", zoom = 8, maptype = "terrain-background")
 
@@ -10,7 +20,7 @@ map_df <-merge_samdat %>%
   summarise(Precipitation.growing = mean(Precipitation.growing), Growing.Degree.Days= mean(Growing.Degree.Days)) %>% 
   left_join(merge_samdat %>% 
               select(AVA, Vineyard, Latitude, Longitude), by= "Vineyard") %>% 
-  unique()
+  unique() %>% map_df(rev)
 
 #plot zoomed in section
 norcal_plot <- ggmap(norcal_zoom, extent="panel")+
@@ -19,7 +29,7 @@ norcal_plot <- ggmap(norcal_zoom, extent="panel")+
   # manually change color gradient
   scale_color_gradient2(name="Precipitation (mm)", low = "red", mid="gray40", high="blue", midpoint = mean(map_df$Precipitation.growing))+
   # repel labels from points for readability
-  geom_label_repel(data=map_df, aes(label=Vineyard,x=Longitude,y=Latitude, fill=AVA), show.legend = FALSE, xlim=c(-122,-121))+labs(x="", y="")+
+  geom_label_repel(data=map_df, aes(label=Vineyard,x=Longitude,y=Latitude, fill=AVA), show.legend = FALSE, xlim=c(-122.2,-121), ylim = c(37,39.5))+labs(x="", y="")+
   scale_fill_manual(values = mypal)+ 
   scale_size_continuous(name="Growing Degree Days")+
   coord_equal()+
@@ -70,4 +80,4 @@ Figure_1_map <- Figure_1_map+plot_annotation(tag_levels = "A")&
 
 Figure_1_map
 #save as PDF
-ggsave("Figures_and_tables_check/Figure_1_map.pdf",Figure_1_map,  width = 8, height = 9, units = "in")
+ggsave("Figures_and_tables_check/Figure_1_map.pdf",Figure_1_map,  width = 8, height = 5.5, units = "in")

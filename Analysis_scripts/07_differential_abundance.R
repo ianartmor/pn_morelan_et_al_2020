@@ -1,3 +1,14 @@
+#library(dada2)
+#library(microbiomeSeq)
+#library(microbiome)
+#library(corncob)
+#library(patchwork)
+#library(cowplot)
+#library(tidyverse)
+#library(phyloseq)
+#source("00_setup.R")
+
+
 
 # differential abundance using corncob
 dif_abund <- function(physeq,n){
@@ -47,6 +58,9 @@ dif_abund <- function(physeq,n){
   
   return(list( vintage_dif, must_precip_growing_dif, must_ta_dif, must_ph_dif, must_tss_dif))
 }
+
+
+bact_dif <- dif_abund(must_16s_merge %>% taxa_level("Genus"), 12)
 #subset to include only taxa associated with vintage
 sig_vintage <- must_16s_merge%>% taxa_level("Genus") %>%transform("compositional")%>%  prune_taxa(bact_difs[[1]]$significant_taxa,.)
 

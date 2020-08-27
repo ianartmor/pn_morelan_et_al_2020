@@ -1,16 +1,29 @@
 ---
 title: "Statistical Summaries"
 author: "Ian Morelan"
-date: "8/12/2020"
+date: "8/27/2020"
 output: 
   word_document:
     toc: yes
 ---
 
 ```{r setup, include=FALSE}
-source("setup.R")
-source("alpha_diversity.R")
-library(broom)
+
+### NOTE: document is broken down into two parts. Results are reported first, and assumption testing (Shapiro-Wilk for normality, Levene's for homogeneity of variance) is reported second.
+
+
+
+source("00_setup.R")
+source("05_alpha_diversity.R")
+#library(vegan)
+#library(microbiome)
+#library(microbiomeSeq)
+#library(RColorBrewer)
+#library(phyloseq)
+#library(shades)
+#library(WriteXLS)
+#library(broom)
+#library(knitr)
 ```
 
 # Results
@@ -19,7 +32,6 @@ library(broom)
 ### Growing degree days (GDD)
 ```{r gdd, comment="->", echo=FALSE, results='asis'}
 # Means and SDs
-
 
 # by vintage
 merge_samdat %>% 
@@ -50,7 +62,8 @@ merge_samdat %>%
   filter(Year ==2016) %>% 
   group_by(AVA) %>% 
   summarise(mean=mean(Growing.Degree.Days),
-            sd=sd(Growing.Degree.Days),min=min(Growing.Degree.Days), max=max(Growing.Degree.Days)) %>% kable(caption="  \n**2016 means, SDs, min, max (by AVA)**")
+            sd=sd(Growing.Degree.Days),min=min(Growing.Degree.Days), max=max(Growing.Degree.Days)) %>% 
+  kable(caption="  \n**2016 means, SDs, min, max (by AVA)**")
 
 
 
@@ -65,12 +78,15 @@ merge_samdat %>%
   filter(Year ==2017) %>% 
   group_by(AVA) %>% 
   summarise(mean=mean(Growing.Degree.Days),
-            sd=sd(Growing.Degree.Days), min=min(Growing.Degree.Days), max=max(Growing.Degree.Days)) %>% kable(caption="  \n**2017 means, SDs, min, max (by AVA)**")
+            sd=sd(Growing.Degree.Days), min=min(Growing.Degree.Days), max=max(Growing.Degree.Days)) %>% 
+  kable(caption="  \n**2017 means, SDs, min, max (by AVA)**")
   
 # ANOVA 2017 
 aov(formula = Growing.Degree.Days~AVA,
     data = merge_samdat %>% filter(Year==2017)) %>% 
  tidy %>% kable(caption = "  \n**One-way ANOVA of GDD values (2017 vintage)**")
+
+# Tukey's HSD 2017
 aov(formula = Growing.Degree.Days~AVA,
     data = merge_samdat %>% filter(Year==2017)) %>%
   TukeyHSD %>% tidy %>% kable(caption="  \n**Tukey's HSD of GDD values (2017 vintage)**")
@@ -115,7 +131,8 @@ merge_samdat %>%
   filter(Year ==2016) %>% 
   group_by(AVA) %>% 
   summarise(mean=mean(Precipitation.growing),
-            sd=sd(Precipitation.growing), min=min(Precipitation.growing), max=max(Precipitation.growing)) %>% kable(caption="  \n**2016 means, SDs, min, max (by AVA)**")
+            sd=sd(Precipitation.growing), min=min(Precipitation.growing), max=max(Precipitation.growing)) %>% 
+  kable(caption="  \n**2016 means, SDs, min, max (by AVA)**")
 
 # ANOVA 2016 (on log transformed values)
 aov(formula = log(Precipitation.growing)~AVA,
@@ -169,9 +186,10 @@ merge_samdat %>%
   kable(caption="  \n**Vintage pH means and SDs**")
 
 # t test 
-t.test(x=merge_samdat %>% filter(Year ==2016) %>% select(Must_pH)%>% unlist%>% log %>% as.numeric(), 
+t.test(x=merge_samdat %>% filter(Year ==2016) %>% select(Must_pH)%>% unlist %>% as.numeric(), 
        y=merge_samdat %>% filter(Year ==2017) %>% filter(Vineyard != "AV2" ) %>% filter(Vineyard != "OR2")%>%
-         select(Must_pH) %>% unlist %>% log %>% as.numeric(), paired = TRUE)%>% tidy %>%
+         select(Must_pH) %>% unlist %>% as.numeric(), 
+       paired = TRUE)%>% tidy %>%
   kable(caption="  \n**Paired t-test of pH between vintages**")
 
 
@@ -180,7 +198,8 @@ merge_samdat %>%
   filter(Year ==2016) %>% 
   group_by(AVA) %>% 
   summarise(mean=mean(Must_pH),
-            sd=sd(Must_pH), min=min(Must_pH), max=max(Must_pH)) %>% kable(caption="  \n**2016 means, SDs, min, max (by AVA)**")
+            sd=sd(Must_pH), min=min(Must_pH), max=max(Must_pH)) %>% 
+  kable(caption="  \n**2016 means, SDs, min, max (by AVA)**")
 
 #ANOVA 2016 (ns so no Tukey's HSD)
 aov(formula = Must_pH ~AVA,
@@ -194,7 +213,8 @@ merge_samdat %>%
   filter(Year ==2017) %>% 
   group_by(AVA) %>% 
   summarise(mean=mean(Must_pH),
-            sd=sd(Must_pH), min=min(Must_pH), max=max(Must_pH)) %>% kable(caption="  \n**2017 means, SDs, min, max (by AVA)**")
+            sd=sd(Must_pH), min=min(Must_pH), max=max(Must_pH)) %>%
+  kable(caption="  \n**2017 means, SDs, min, max (by AVA)**")
 
 
 # ANOVA 2017 (ns so no Tukey's HSD)
@@ -217,7 +237,7 @@ merge_samdat %>%
   group_by(Year)  %>% 
   summarise(mean=mean(Must_TA),
             sd=sd(Must_TA))%>%
-  kable(caption="  \n**Vintage pH means and SDs**")
+  kable(caption="  \n**Vintage TA means and SDs**")
 
 # t test 
 t.test(x=merge_samdat %>% 
@@ -230,7 +250,7 @@ t.test(x=merge_samdat %>%
          filter(Vineyard != "OR2")%>%
          select(Must_TA) %>% unlist %>% log, 
        paired = TRUE)%>% tidy %>%
-  kable(caption="  \n**Paired t-test of titratable acidity values between vintages**")
+  kable(caption="  \n**Paired t-test of TA values between vintages**")
 
 
 # by AVA
@@ -244,7 +264,7 @@ merge_samdat %>%
 aov(formula = Must_TA ~AVA,
     data = merge_samdat %>% 
       filter(Year==2016)) %>% 
-  tidy %>% kable(caption = "  \n**One-way ANOVA of titratable acidity values (2016 vintage)**")
+  tidy %>% kable(caption = "  \n**One-way ANOVA of TA values (2016 vintage)**")
 
 
 #
@@ -261,7 +281,7 @@ merge_samdat %>%
 aov(formula = Must_TA~AVA,
     data = merge_samdat %>% 
       filter(Year==2017)) %>% 
-  tidy %>% kable(caption = "  \n**One-way ANOVA of titratable acidity values (2017 vintage)**")
+  tidy %>% kable(caption = "  \n**One-way ANOVA of TA values (2017 vintage)**")
 
 ```
 
@@ -298,7 +318,8 @@ merge_samdat %>%
   filter(Year ==2016) %>% 
   group_by(AVA) %>% 
   summarise(mean=mean(Must_TSS),
-            sd=sd(Must_TSS), min=min(Must_TSS), max=max(Must_TSS)) %>% kable(caption="  \n**2016 means, SDs, min, max (by AVA)**")
+            sd=sd(Must_TSS), min=min(Must_TSS), max=max(Must_TSS)) %>%
+  kable(caption="  \n**2016 means, SDs, min, max (by AVA)**")
 
 
 # ANOVA 2016 (ns so no Tukey's HSD)
@@ -318,7 +339,7 @@ merge_samdat %>%
 aov(formula = Must_TSS %>% log ~AVA,
     data = merge_samdat %>% 
       filter(Year==2017)) %>% 
-  tidy %>% kable(caption = "  \n**One-way ANOVA of TSS values (2017 vintage)**")
+  tidy %>% kable(caption = "  \n**One-way ANOVA of log transformed TSS values (2017 vintage)**")
 
 
 
@@ -386,11 +407,12 @@ aov(formula = Richness~AVA,
     data = bact_alpha_test_df %>% 
       filter(Year==2017)) %>% 
   tidy %>% kable(caption = "  \n**One-way ANOVA of richness values (2017 vintage)**")
+
 # Tukey's HSD 2017
 aov(formula = Richness~AVA,
     data = bact_alpha_test_df %>% 
       filter(Year==2017)) %>% 
-  TukeyHSD()%>% tidy %>% kable(caption="  \n**Tukey's HSD of richness values (2016 vintage)**")
+  TukeyHSD()%>% tidy %>% kable(caption="  \n**Tukey's HSD of richness values (2017 vintage)**")
 
 
 ```
@@ -410,14 +432,6 @@ bact_alpha_test_df %>%
             sd=sd(`Exp. Shannon`))%>%
   kable(caption="  \n**Vintage exponential Shannon means and SDs**")
 
-# 2017
-# overall (AV2 and OR2 excluded, because this corresponds with t-test)
-bact_alpha_test_df %>% 
-  filter(Year ==2017)  %>%
-  filter(Vineyard != "AV2" ) %>% 
-  filter(Vineyard != "OR2")%>%
-  summarise(mean=mean(`Exp. Shannon`), sd=sd(`Exp. Shannon`))%>%
-  kable(caption="  \n**2017 exponential Shannon mean and SD**")
 
 # t test (log transformed)
 t.test(x=bact_alpha_test_df %>% 
@@ -447,7 +461,7 @@ aov(formula = `Exp. Shannon` %>% log~AVA,
   tidy %>% kable(caption = "  \n**One-way ANOVA of log transformed exponential Shannon values (2016 vintage)**")
 
 #Tukey's HSD 2016 (log transformed)
-aov(formula = `Exp. Shannon` %>% log~AVA,
+aov(formula = `Exp. Shannon`%>% log ~AVA,
     data = bact_alpha_test_df %>% 
       filter(Year==2016)) %>% 
   TukeyHSD()%>% tidy %>% kable(caption="  \n**Tukey's HSD of log transformed exponential Shannon values (2016 vintage)**")
@@ -471,7 +485,7 @@ aov(formula = `Exp. Shannon`~AVA,
 aov(formula = `Exp. Shannon`~AVA,
     data = bact_alpha_test_df %>% 
       filter(Year==2017)) %>% 
-  TukeyHSD()%>% tidy %>% kable(caption="  \n**Tukey's HSD of exponential Shannon values (2016 vintage)**")
+  TukeyHSD()%>% tidy %>% kable(caption="  \n**Tukey's HSD of exponential Shannon values (2017 vintage)**")
 
 ```
 
@@ -562,7 +576,7 @@ t.test(x=fungt_alpha_test_df %>%
          filter(Vineyard != "OR2")%>%
          select(Richness) %>% unlist %>% log, 
        paired = TRUE)%>% tidy %>%
-  kable(caption="  \n**Paired t-test of richness values between vintages**")
+  kable(caption="  \n**Paired t-test of log transformed richness values between vintages**")
 
 # by AVA
 fungt_alpha_test_df %>% 
@@ -624,13 +638,13 @@ fungt_alpha_test_df %>%
 wilcox.test(x=fungt_alpha_test_df %>% 
          filter(Year ==2016) %>% 
          select(`Exp. Shannon`)%>% 
-         unlist %>% log, 
+         unlist , 
        y=fungt_alpha_test_df %>% 
          filter(Year ==2017) %>% 
          filter(Vineyard != "AV2" ) %>% 
          filter(Vineyard != "OR2")%>%
          select(`Exp. Shannon`) %>% 
-         unlist %>% log, 
+         unlist , 
        paired = TRUE)%>% tidy %>%
   kable(caption="  \n**Wilcoxon signed rank of exponential Shannon values between vintages**")
 
@@ -650,7 +664,7 @@ aov(formula = `Exp. Shannon` ~AVA,
   tidy %>% kable(caption = "  \n**One-way ANOVA of exponential Shannon values (2016 vintage)**")
 
 #Tukey's HSD 2016
-aov(formula = `Exp. Shannon` %>% log~AVA,
+aov(formula = `Exp. Shannon` ~AVA,
     data = fungt_alpha_test_df %>% 
       filter(Year==2016)) %>% 
   TukeyHSD()%>% tidy %>% kable(caption="  \n**Tukey's HSD of exponential Shannon values (2016 vintage)**")
@@ -685,14 +699,13 @@ aov(formula = `Exp. Shannon`~AVA,
 ```{r inverse simpson fung, echo=FALSE}
 
 # Means and SDs
-# Means and SDs
 fungt_alpha_test_df %>% 
    filter(Vineyard != "AV2" ) %>% 
   filter(Vineyard != "OR2")%>%
   group_by(Year)  %>% 
   summarise(mean=mean(`Inverse Simpson`),
             sd=sd(`Inverse Simpson`))%>%
-  kable(caption="  \n**Vintage Inverse Simpson means and SDs**")
+  kable(caption="  \n**Vintage inverse Simpson means and SDs**")
 
 # wilcoxon signed rank
 wilcox.test(x=fungt_alpha_test_df %>%
@@ -736,7 +749,7 @@ aov(formula = `Inverse Simpson`~AVA,
 aov(formula = `Inverse Simpson`~AVA,
     data = fungt_alpha_test_df %>% 
       filter(Year==2017)) %>% 
-  TukeyHSD()%>% tidy %>% kable(caption="  \n**Tukey's HSD of exponential Shannon values (2017 vintage)**")
+  TukeyHSD()%>% tidy %>% kable(caption="  \n**Tukey's HSD of inverse Simpson values (2017 vintage)**")
 
 
 
@@ -983,7 +996,7 @@ select(AVA) %>% unlist)%>%
 shapiro.test(merge_samdat %>% 
 filter(Year==2017)  %>% 
 select(Must_TSS)%>% unlist %>% log) %>%tidy %>% 
-  kable(caption="  \n**Shapiro Wilk of TSS values (2017 vintage)**")
+  kable(caption="  \n**Shapiro Wilk of log transformed TSS values (2017 vintage)**")
 
 # Levene test 2017
 levene.test(y=merge_samdat %>% 
@@ -993,7 +1006,7 @@ group=merge_samdat %>%
 filter(Year==2017) %>% 
 select(AVA) %>% unlist)%>% 
   tidy %>% 
-  kable(caption="  \n**Levene's test on TSS values (2017 vintage)**")
+  kable(caption="  \n**Levene's test on log transformed TSS values (2017 vintage)**")
 
 
 ```
@@ -1124,7 +1137,7 @@ select(`Inverse Simpson`) %>% unlist %>% log,
 group=bact_alpha_test_df %>% 
 filter(Year==2016) %>% 
 select(AVA) %>% unlist)%>% tidy %>%
-  kable(caption="  \n**Levene of inverse Simpson values (2016 vintage)**")
+  kable(caption="  \n**Levene of log inverse Simpson values (2016 vintage)**")
 
 #Shapiro Wilk 2017 vintage
 shapiro.test(bact_alpha_test_df %>% 

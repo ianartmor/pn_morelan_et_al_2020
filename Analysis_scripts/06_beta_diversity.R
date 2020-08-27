@@ -1,6 +1,16 @@
 #beta diversity
 
-source("setup.R")
+#library(phyloseq)
+#library(vegan)
+#library(microbiome)
+#library(microbiomeSeq)
+#library(tidyverse)
+#library(ggordiplots)
+#library(shades)
+#library(patchwork)
+#library(RColorBrewer)
+#library(geodist)
+#source("setup.R")
 
 #check if replicates are different. 
 #must_16s %>% rarefy_even_depth(sample.size = 5000)%>% ordinate(method="NMDS") %>% plot_ordination(physeq=must_16s, ordination = .)+facet_wrap(~Shipment) 
@@ -79,7 +89,7 @@ physeq_mantel <- function(physeq){
   
   xydist <- geodist(xy)
   bcdist <- vegdist(otutab, "euclidean")
-  mantel(xydist, bcdist,permutations = 1000, method = "spearman")
+  mantel(xydist, bcdist, permutations = 1000, method = "spearman")
 }
 
 # run beta div function
@@ -89,11 +99,12 @@ beta_div_16s <- plot_beta_div(must_16s_merge)
 Figure_4_bacterial_beta_diversity <- beta_div_16s[[1]]
 
 # add annotation with patchwork
-Figure_4_bacterial_beta_diversity <- Figure_4_bacterial_beta_diversity+plot_annotation(tag_levels = "A", title = "Bacterial Communities")&
+Figure_4_bacterial_beta_diversity <- Figure_4_bacterial_beta_diversity+plot_annotation(tag_levels = "A")&
   theme(plot.title = element_text(hjust = 0.3))
-ggsave("Figures_and_tables_check/Figure_4_bacterial_beta_diversity.pdf", Figure_4_bacterial_beta_diversity, width = 8,height = 8,units = "in" )
+ggsave("Figures_and_tables_check/Figure_4_bacterial_beta_diversity.pdf", Figure_4_bacterial_beta_diversity, width = 6.5,height = 7.5,units = "in" )
 
 #mantel tests
+
 physeq_mantel(must_16s_2016)
 physeq_mantel(must_16s_2017)
 
@@ -104,9 +115,9 @@ beta_div_its <- plot_beta_div(must_its_merge)
 Figure_5_fungal_beta_diversity <- beta_div_its[[1]]
 
 #add annotation with patchwork
-Figure_5_fungal_beta_diversity <- Figure_5_fungal_beta_diversity+plot_annotation(tag_levels = "A", title = "Fungal Communities")&
+Figure_5_fungal_beta_diversity <- Figure_5_fungal_beta_diversity+plot_annotation(tag_levels = "A")&
   theme(plot.title = element_text(hjust = 0.3))
-ggsave("Figures_and_tables_check/Figure_5_fungal_beta_diversity.pdf", Figure_5_fungal_beta_diversity, width = 8,height = 8,units = "in"  )
+ggsave("Figures_and_tables_check/Figure_5_fungal_beta_diversity.pdf", Figure_5_fungal_beta_diversity, width = 6.5,height = 7.5,units = "in"  )
 
 #mantel tests
 physeq_mantel(must_its_2016)

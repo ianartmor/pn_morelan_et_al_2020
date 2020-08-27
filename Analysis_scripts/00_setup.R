@@ -13,12 +13,13 @@ library(ggordiplots)
 library(corncob)
 library(ggmap)
 library(ggrepel)
-library(shades)
 library(patchwork)
+library(broom)
 library(ggsn)
 library(phyloseq)
 library(WriteXLS)
 library(RColorBrewer)
+library(shades)
 library(cowplot)
 library(knitr)
 library(lme4)
@@ -57,7 +58,7 @@ mypal <- brightness(brewer.pal(5,"Spectral"), 0.8)
 # shape values
 shapevals <- c(21:25)
 
-
+# slightly modified version of the function found in the gg.gap package https://www.rdocumentation.org/packages/gg.gap/versions/1.3/topics/gg.gap
 gg.gap <- function (plot, ylim, segments, tick_width, rel_heights, vjust = 0, 
           margin = c(top = 0, right = 0, bottom = 0, left = 1), ...) 
 {
