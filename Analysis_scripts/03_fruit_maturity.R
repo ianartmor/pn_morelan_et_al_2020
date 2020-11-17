@@ -4,7 +4,6 @@
 #library(shades)
 #library(tidyverse) 
 #source("setup.R")
-
 fm_df <- merge_samdat %>%
   pivot_longer(cols = c(Must_TSS , Must_pH, Must_TA), names_to = "Chem_var") %>% 
   group_by(Year,Chem_var)%>%
@@ -23,4 +22,4 @@ Figure_3_fruit_maturity <- fm_df %>%  group_by(AVA,Year) %>%
   theme(strip.placement = "outside", strip.background = element_rect(fill="white", color="white"))
 
 Figure_3_fruit_maturity
-ggsave("Figures_and_tables_check/Figure_3_fruit_maturity.pdf",Figure_3_fruit_maturity, width = 6.5,height = 9, units = "in" )
+#ggsave("Figures_and_tables_check/Figure_3_fruit_maturity.pdf",Figure_3_fruit_maturity, width = 6.5,height = 9, units = "in" )

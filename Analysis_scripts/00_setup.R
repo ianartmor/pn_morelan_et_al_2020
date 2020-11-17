@@ -23,9 +23,9 @@ library(shades)
 library(cowplot)
 library(knitr)
 library(lme4)
-
+library(ggedit)
 # read in list of phyloseq objects
-phylist <- readRDS("phyloseq_objects.rds")
+phylist <- readRDS("Data/phyloseq_objects.rds")
 
 # extract phyloseq objects from list
 must_16s <- phylist[[1]]

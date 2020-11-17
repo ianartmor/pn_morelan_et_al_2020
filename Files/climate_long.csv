@@ -1,0 +1,57 @@
+Must_TSS,Must_pH,Must_TA,Vineyard,Year,Elevation,Latitude,Harvest.date,Sub_AVA,Soil_order,Sol_taxonomic_subgroup,Soil_texture,Soil_temperature_class,Shipment,AVA,Climate_var,value,mean_sep_y,mean_sep_val
+22.85,3.7275,4.2825,AV1,2016,479,39.0179608,9/6/16,Mendocino,Alfisols,Ultic Haploxeralfs,fine-loamy,Thermic,AV1_2016,Mendocino,Growing Degree Days,1631,1681,a
+22.725,3.48,6.095,AS1,2016,127,36.34518808,8/25/16,Arroyo Seco,Mollisols,Typic Argixerolls,fine-loamy,Thermic,AS1_2016,Monterey,Growing Degree Days,1454,1730,a
+22.525,3.54,5.5125,AS2,2016,180,36.35431348,8/25/16,Arroyo Seco,Mollisols,Typic Argixerolls,fine-loamy,Thermic,AS2_2016,Monterey,Growing Degree Days,1680,NA,NA
+23.625,3.6175,4.7375,SMV1,2016,203,34.86328801,9/8/16,Santa Maria Valley,Alfisols,Mollic Haploxeralfs,fine-loamy,Thermic,SMV1_2016,Santa Barbara,Growing Degree Days,1545,1696,a
+25.275,3.645,4.6375,SMV2,2016,150,34.88541101,9/8/16,Santa Maria Valley,Mollisols,Cumulic Haploxerolls,coarse-loamy,Thermic,SMV2_2016,Santa Barbara,Growing Degree Days,1646,NA,NA
+24.175,3.4925,5.56,SRH1,2016,159,34.60883107,9/8/16,Santa Rita Hills,Mollisols,Pachic Ultic Haploxerolls,clayey-skeletal,Thermic,SRH1_2016,Santa Barbara,Growing Degree Days,1437,NA,NA
+23.475,3.5475,4.41,CRN1,2016,13,38.22539588,9/6/16,Los Carneros,Vertisols,Chromic Pelloxererts,fine,Thermic,CRN1_2016,Sonoma,Growing Degree Days,1400,1632,a
+25.475,3.4675,4.7625,RRV1,2016,38,38.45112809,9/8/16,Russian River Valley,Ultisols,Typic Haplustults,fine-loamy,Isomesic,RRV1_2016,Sonoma,Growing Degree Days,1576,NA,NA
+24.95,3.625,3.83,RRV2,2016,167,38.43342304,9/8/16,Russian River Valley,Ultisols,Typic Haplustults,fine-loamy,Isomesic,RRV2_2016,Sonoma,Growing Degree Days,1556,NA,NA
+24.425,3.4625,5.7725,RRV3,2016,56,38.3440408,9/14/16,Russian River Valley,Ultisols,Fluvaquentic Haploxerolls,fine-loamy,Isomesic,RRV3_2016,Sonoma,Growing Degree Days,1400,NA,NA
+24.4,3.525,4.3875,SNC1,2016,203,38.67871839,9/10/16,Sonoma Coast,Ultisols,Typic Haplustults,fine-loamy,Isomesic,SNC1_2016,Sonoma,Growing Degree Days,1582,NA,NA
+23.525,3.4625,4.6325,SNC2,2016,63,38.23837937,8/31/16,Sonoma,Vertisols,Aridic Haploxererts,fine,Thermic,SNC2_2016,Sonoma,Growing Degree Days,1498,NA,NA
+24.95,3.62,4.39,OR1,2016,94,45.2940985,9/16/16,Yamhill-Carlton,Alfisols,Ultic Haploxeralfs,fine,Mesic,OR1_2016,Willamette Valley,Growing Degree Days,1335,1385,a
+23.35,3.6075,4.595,AV1,2017,479,39.0179608,9/12/17,Mendocino,Alfisols,Ultic Haploxeralfs,fine-loamy,Thermic,AV1_2017,Mendocino,Growing Degree Days,1711,1761,ab
+23.575,3.8225,4.235,AV2,2017,86,39.13601028,9/25/17,Mendocino,Alfisols,Ultic Haploxeralfs,fine-loamy,Thermic,AV2_2017,Mendocino,Growing Degree Days,1422,NA,NA
+23.15,3.585,6.0225,AS1,2017,127,36.34518808,8/30/17,Arroyo Seco,Mollisols,Typic Argixerolls,fine-loamy,Thermic,AS1_2017,Monterey,Growing Degree Days,1684,1896,a
+22.975,3.61,5.26,AS2,2017,180,36.35431348,8/30/17,Arroyo Seco,Mollisols,Typic Argixerolls,fine-loamy,Thermic,AS2_2017,Monterey,Growing Degree Days,1846,NA,NA
+23.775,3.7075,5.165,SMV1,2017,203,34.86328801,9/4/17,Santa Maria Valley,Alfisols,Mollic Haploxeralfs,fine-loamy,Thermic,SMV1_2017,Santa Barbara,Growing Degree Days,1705,1871,a
+23.175,3.6125,4.9425,SMV2,2017,150,34.88541101,9/4/17,Santa Maria Valley,Mollisols,Cumulic Haploxerolls,coarse-loamy,Thermic,SMV2_2017,Santa Barbara,Growing Degree Days,1821,NA,NA
+22.55,3.5975,5.125,SRH1,2017,159,34.60883107,9/8/17,Santa Rita Hills,Mollisols,Pachic Ultic Haploxerolls,clayey-skeletal,Thermic,SRH1_2017,Santa Barbara,Growing Degree Days,1589,NA,NA
+25.2,3.725,4.9425,CRN1,2017,13,38.22539588,8/31/17,Los Carneros,Vertisols,Chromic Pelloxererts,fine,Thermic,CRN1_2017,Sonoma,Growing Degree Days,1472,1757,a
+25.175,3.5525,4.13,RRV1,2017,38,38.45112809,9/6/17,Russian River Valley,Ultisols,Typic Haplustults,fine-loamy,Isomesic,RRV1_2017,Sonoma,Growing Degree Days,1707,NA,NA
+26.8,3.6375,3.7,RRV2,2017,167,38.43342304,9/5/17,Russian River Valley,Ultisols,Typic Haplustults,fine-loamy,Isomesic,RRV2_2017,Sonoma,Growing Degree Days,1681,NA,NA
+22.3,3.5175,4.8175,RRV3,2017,56,38.3440408,9/13/17,Russian River Valley,Ultisols,Fluvaquentic Haploxerolls,fine-loamy,Isomesic,RRV3_2017,Sonoma,Growing Degree Days,1497,NA,NA
+26.45,3.5925,4.1925,SNC1,2017,203,38.67871839,9/6/17,Sonoma Coast,Ultisols,Typic Haplustults,fine-loamy,Isomesic,SNC1_2017,Sonoma,Growing Degree Days,1670,NA,NA
+23.425,3.4275,5.5175,SNC2,2017,63,38.23837937,8/31/17,Sonoma,Vertisols,Aridic Haploxererts,fine,Thermic,SNC2_2017,Sonoma,Growing Degree Days,1617,NA,NA
+23.325,3.6025,4.7175,OR1,2017,94,45.2940985,10/4/17,Yamhill-Carlton,Alfisols,Ultic Haploxeralfs,fine,Mesic,OR1_2017,Willamette Valley,Growing Degree Days,1297,1347,b
+24.175,3.4525,4.9525,OR2,2017,134,45.02917405,10/4/17,Eola-Amity Hills,Mollisols,Aquultic Haplexerolls,very-fine,Mesic,OR2_2017,Willamette Valley,Growing Degree Days,1245,NA,NA
+22.85,3.7275,4.2825,AV1,2016,479,39.0179608,9/6/16,Mendocino,Alfisols,Ultic Haploxeralfs,fine-loamy,Thermic,AV1_2016,Mendocino,Precipitation (mm),59.69799805,84.69799805,b
+22.725,3.48,6.095,AS1,2016,127,36.34518808,8/25/16,Arroyo Seco,Mollisols,Typic Argixerolls,fine-loamy,Thermic,AS1_2016,Monterey,Precipitation (mm),11.51099992,36.51099992,a
+22.525,3.54,5.5125,AS2,2016,180,36.35431348,8/25/16,Arroyo Seco,Mollisols,Typic Argixerolls,fine-loamy,Thermic,AS2_2016,Monterey,Precipitation (mm),11.51400018,NA,NA
+23.625,3.6175,4.7375,SMV1,2016,203,34.86328801,9/8/16,Santa Maria Valley,Alfisols,Mollic Haploxeralfs,fine-loamy,Thermic,SMV1_2016,Santa Barbara,Precipitation (mm),20.75,45.75,a
+25.275,3.645,4.6375,SMV2,2016,150,34.88541101,9/8/16,Santa Maria Valley,Mollisols,Cumulic Haploxerolls,coarse-loamy,Thermic,SMV2_2016,Santa Barbara,Precipitation (mm),18.4920001,NA,NA
+24.175,3.4925,5.56,SRH1,2016,159,34.60883107,9/8/16,Santa Rita Hills,Mollisols,Pachic Ultic Haploxerolls,clayey-skeletal,Thermic,SRH1_2016,Santa Barbara,Precipitation (mm),18.53800058,NA,NA
+23.475,3.5475,4.41,CRN1,2016,13,38.22539588,9/6/16,Los Carneros,Vertisols,Chromic Pelloxererts,fine,Thermic,CRN1_2016,Sonoma,Precipitation (mm),28.49300104,87.83000112,b
+25.475,3.4675,4.7625,RRV1,2016,38,38.45112809,9/8/16,Russian River Valley,Ultisols,Typic Haplustults,fine-loamy,Isomesic,RRV1_2016,Sonoma,Precipitation (mm),52.29400009,NA,NA
+24.95,3.625,3.83,RRV2,2016,167,38.43342304,9/8/16,Russian River Valley,Ultisols,Typic Haplustults,fine-loamy,Isomesic,RRV2_2016,Sonoma,Precipitation (mm),62.83000112,NA,NA
+24.425,3.4625,5.7725,RRV3,2016,56,38.3440408,9/14/16,Russian River Valley,Ultisols,Fluvaquentic Haploxerolls,fine-loamy,Isomesic,RRV3_2016,Sonoma,Precipitation (mm),54.69600023,NA,NA
+24.4,3.525,4.3875,SNC1,2016,203,38.67871839,9/10/16,Sonoma Coast,Ultisols,Typic Haplustults,fine-loamy,Isomesic,SNC1_2016,Sonoma,Precipitation (mm),60.00999928,NA,NA
+23.525,3.4625,4.6325,SNC2,2016,63,38.23837937,8/31/16,Sonoma,Vertisols,Aridic Haploxererts,fine,Thermic,SNC2_2016,Sonoma,Precipitation (mm),36.87699986,NA,NA
+24.95,3.62,4.39,OR1,2016,94,45.2940985,9/16/16,Yamhill-Carlton,Alfisols,Ultic Haploxeralfs,fine,Mesic,OR1_2016,Willamette Valley,Precipitation (mm),175.855999,200.855999,c
+23.35,3.6075,4.595,AV1,2017,479,39.0179608,9/12/17,Mendocino,Alfisols,Ultic Haploxeralfs,fine-loamy,Thermic,AV1_2017,Mendocino,Precipitation (mm),144.5590001,169.5590001,ac
+23.575,3.8225,4.235,AV2,2017,86,39.13601028,9/25/17,Mendocino,Alfisols,Ultic Haploxeralfs,fine-loamy,Thermic,AV2_2017,Mendocino,Precipitation (mm),143.4100013,NA,NA
+23.15,3.585,6.0225,AS1,2017,127,36.34518808,8/30/17,Arroyo Seco,Mollisols,Typic Argixerolls,fine-loamy,Thermic,AS1_2017,Monterey,Precipitation (mm),20.8210007,77.10199928,a
+22.975,3.61,5.26,AS2,2017,180,36.35431348,8/30/17,Arroyo Seco,Mollisols,Typic Argixerolls,fine-loamy,Thermic,AS2_2017,Monterey,Precipitation (mm),27.7480008,NA,NA
+23.775,3.7075,5.165,SMV1,2017,203,34.86328801,9/4/17,Santa Maria Valley,Alfisols,Mollic Haploxeralfs,fine-loamy,Thermic,SMV1_2017,Santa Barbara,Precipitation (mm),52.10199928,77.10199928,a
+23.175,3.6125,4.9425,SMV2,2017,150,34.88541101,9/4/17,Santa Maria Valley,Mollisols,Cumulic Haploxerolls,coarse-loamy,Thermic,SMV2_2017,Santa Barbara,Precipitation (mm),47.49800014,NA,NA
+22.55,3.5975,5.125,SRH1,2017,159,34.60883107,9/8/17,Santa Rita Hills,Mollisols,Pachic Ultic Haploxerolls,clayey-skeletal,Thermic,SRH1_2017,Santa Barbara,Precipitation (mm),34.65800095,NA,NA
+25.2,3.725,4.9425,CRN1,2017,13,38.22539588,8/31/17,Los Carneros,Vertisols,Chromic Pelloxererts,fine,Thermic,CRN1_2017,Sonoma,Precipitation (mm),76.67000282,191.8640036,b
+25.175,3.5525,4.13,RRV1,2017,38,38.45112809,9/6/17,Russian River Valley,Ultisols,Typic Haplustults,fine-loamy,Isomesic,RRV1_2017,Sonoma,Precipitation (mm),165.0179932,NA,NA
+26.8,3.6375,3.7,RRV2,2017,167,38.43342304,9/5/17,Russian River Valley,Ultisols,Typic Haplustults,fine-loamy,Isomesic,RRV2_2017,Sonoma,Precipitation (mm),166.8640036,NA,NA
+22.3,3.5175,4.8175,RRV3,2017,56,38.3440408,9/13/17,Russian River Valley,Ultisols,Fluvaquentic Haploxerolls,fine-loamy,Isomesic,RRV3_2017,Sonoma,Precipitation (mm),131.7949996,NA,NA
+26.45,3.5925,4.1925,SNC1,2017,203,38.67871839,9/6/17,Sonoma Coast,Ultisols,Typic Haplustults,fine-loamy,Isomesic,SNC1_2017,Sonoma,Precipitation (mm),156.6319936,NA,NA
+23.425,3.4275,5.5175,SNC2,2017,63,38.23837937,8/31/17,Sonoma,Vertisols,Aridic Haploxererts,fine,Thermic,SNC2_2017,Sonoma,Precipitation (mm),81.26300049,NA,NA
+23.325,3.6025,4.7175,OR1,2017,94,45.2940985,10/4/17,Yamhill-Carlton,Alfisols,Ultic Haploxeralfs,fine,Mesic,OR1_2017,Willamette Valley,Precipitation (mm),284.7319956,309.7319956,c
+24.175,3.4525,4.9525,OR2,2017,134,45.02917405,10/4/17,Eola-Amity Hills,Mollisols,Aquultic Haplexerolls,very-fine,Mesic,OR2_2017,Willamette Valley,Precipitation (mm),262.4350047,NA,NA

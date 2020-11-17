@@ -80,4 +80,4 @@ Figure_1_map <- Figure_1_map+plot_annotation(tag_levels = "A")&
 
 Figure_1_map
 #save as PDF
-ggsave("Figures_and_tables_check/Figure_1_map.pdf",Figure_1_map,  width = 8, height = 5.5, units = "in")
+#ggsave("Figures_and_tables_check/Figure_1_map.pdf",Figure_1_map,  width = 8, height = 5.5, units = "in")

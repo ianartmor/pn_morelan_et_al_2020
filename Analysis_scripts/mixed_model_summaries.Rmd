@@ -1,0 +1,157 @@
+---
+title: "Mixed model results tables"
+author: "Ian Morelan"
+date: "11/12/2020"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+
+#this file takes mixed model results, summarizes them into tables and generates a word document for easier reading.
+load(file = "Files/mixed_models.RData")
+library(dplyr)
+library(broom)
+library(knitr)
+library(gtools)
+```
+
+### Must characteristics and Climate
+
+```{r metadata, echo= FALSE}
+
+Must_acidity_AVA_Year_test %>% kable(caption = "**Must TA AVA/Vintage interaction test**")
+Must_acidity_AVA_test %>% kable(caption = "**Must TA AVA test**")
+Must_acidity_AVA_posthoc$contrasts %>%
+  tidy() %>%
+  select(!null.value) %>%
+  mutate(signif = stars.pval(adj.p.value)) %>%
+  kable(caption = "**Must TA AVA contrasts**")
+Must_acidity_Year_test %>% kable(caption = "**Must TA Vintage test**")
+
+Must_pH_AVA_Year_test %>% kable(caption = "**Must pH AVA/Vintage interaction test**")
+Must_pH_AVA_test %>% kable(caption = "**Must pH AVA tes**t")
+Must_pH_AVA_posthoc$contrasts %>%
+  tidy() %>%
+  select(!null.value) %>%
+  mutate(signif = stars.pval(adj.p.value)) %>%
+  kable(caption = "**Must pH AVA contrasts**")
+Must_pH_Year_test %>% kable(caption = "**Must pH Vintage test**")
+
+Must_TSS_AVA_Year_test %>% kable(caption = "**Must TSS AVA/Vintage interaction test**")
+Must_TSS_AVA_test %>% kable(caption = "**Must TSS AVA test**")
+Must_TSS_AVA_posthoc$contrasts %>%
+  tidy() %>%
+  select(!null.value) %>%
+  mutate(signif = stars.pval(adj.p.value)) %>%
+  kable(caption = "**Must TSS AVA contrasts**")
+Must_TSS_Year_test %>% kable(caption = "**Must TSS Vintage test**")
+
+log_Precip_AVA_Year_test %>% kable(caption = "**Log Precipitation AVA/Vintage interaction test**")
+log_Precip_AVA_test %>% kable(caption = "**Log Precipitation AVA test**")
+log_Precip_AVA_posthoc$contrasts %>%
+  tidy() %>%
+  select(!null.value) %>%
+  mutate(signif = stars.pval(adj.p.value)) %>%
+  kable(caption = "**Log Precipitation AVA contrasts**")
+log_Precip_Year_test %>% kable(caption = "**Log Precipitation Vintage test**")
+log_Precip_Year_posthoc$contrasts %>%
+  tidy() %>%
+  select(!null.value) %>%
+  mutate(signif = stars.pval(p.value)) %>%
+  kable(caption = "**Log Precipitation Vintage contrasts**")
+
+GDD_AVA_Year_test %>% kable(caption = "**GDD AVA/Vintage interaction test**")
+GDD_AVA_test %>% kable(caption = "**GDD AVA test**")
+GDD_AVA_posthoc$contrasts %>%
+  tidy() %>%
+  select(!null.value) %>%
+  mutate(signif = stars.pval(adj.p.value)) %>%
+  kable(caption = "**GDD AVA contrasts**")
+GDD_Year_test %>% kable(caption = "**GDD Vintage test**")
+GDD_Year_posthoc$contrasts %>%
+  tidy() %>%
+  select(!null.value) %>%
+  mutate(signif = stars.pval(p.value)) %>%
+  kable(caption = "**GDD Vintage contrasts**")
+```
+
+
+### Bacterial diversity
+
+```{r bact div, echo=FALSE}
+
+bact_rich_AVA_Year_test %>% kable(caption = "**Bacterial richness AVA/Vintage interaction test**")
+bact_rich_AVA_test %>% kable(caption = "**Bacterial richness AVA test**")
+bact_rich_AVA_posthoc$contrasts %>%
+  tidy() %>%
+  select(!null.value) %>%
+  mutate(signif = stars.pval(adj.p.value)) %>%
+  kable(caption = "**Bacterial richness AVA contrasts**")
+bact_rich_Year_test %>% kable(caption = "**Bacterial richness Vintage test**")
+
+log_Bact_Shannon_AVA_Year_test %>% kable(caption = "**Log Bacterial Exponential Shannon AVA/Vintage interaction test**")
+log_bact_Shannon_AVA_test %>% kable(caption = "**Log Bacterial Exponential Shannon AVA test**")
+log_bact_Shannon_AVA_posthoc$contrasts %>%
+  tidy() %>%
+  select(!null.value) %>%
+  mutate(signif = stars.pval(adj.p.value)) %>%
+  kable(caption = "**Log Bacterial Exponential Shannon AVA contrasts**")
+log_bact_Shannon_Year_test %>% kable(caption = "**Log Bacterial Exponential Shannon Vintage test**")
+
+log_Bact_InvSimp_AVA_Year_test %>% kable(caption = "**Log Bacterial Inverse Simpson AVA/Vintage interaction test**")
+log_Bact_InvSimp_AVA_test %>% kable(caption = "**Log Bacterial Inverse Simpson AVA test**")
+log_Bact_InvSimp_AVA_posthoc$contrasts %>%
+  tidy() %>%
+  select(!null.value) %>%
+  mutate(signif = stars.pval(adj.p.value)) %>%
+  kable(caption = "**Log Bacterial Inverse Simpson AVA contrasts**")
+log_Bact_InvSimp_Year_test %>% kable(caption = "**Log Bacterial Inverse Simpson Vintage test**")
+log_Bact_InvSimp_Year_posthoc$contrasts %>% 
+  tidy() %>%
+  select(!null.value) %>%
+  mutate(signif = stars.pval(p.value)) %>%
+  kable(caption = "**Log Bacterial Inverse Simpson Vintage contrasts**")
+
+```
+
+### Fungal diversity
+
+```{r fung div, echo=FALSE}
+
+log_Fung_Rich_AVA_Year_test %>% kable(caption = "**Log Fungal richness AVA/Vintage interaction test**")
+log_Fung_Rich_AVA_test %>% kable(caption = "**Log Fungal richness AVA test**")
+log_Fung_Rich_AVA_posthoc$contrasts %>%
+  tidy() %>%
+  select(!null.value) %>%
+  mutate(signif = stars.pval(adj.p.value)) %>%
+  kable(caption = "**Log Fungal richness AVA contrasts**")
+log_Fung_Rich_Year_test %>% kable(caption = "**Log Fungal richness Vintage test**")
+
+fung_Shannon_AVA_Year_test %>% kable(caption = "**Fungal Exponential Shannon AVA/Vintage interaction test**")
+fung_Shannon_AVA_test %>% kable(caption = "**Fungal Exponential Shannon AVA test**")
+fung_Shannon_AVA_posthoc$contrasts %>%
+  tidy() %>%
+  select(!null.value) %>%
+  mutate(signif = stars.pval(adj.p.value)) %>%
+  kable(caption = "**Fungal Exponential Shannon AVA contrasts**")
+fung_Shannon_Year_test %>% kable(caption = "**Fungal Exponential Shannon Vintage test**")
+fung_Shannon_Year_posthoc$contrasts %>%
+  tidy() %>%
+  select(!null.value) %>%
+  mutate(signif = stars.pval(p.value)) %>%
+  kable(caption = "**Fungal Exponential Shannon Vintage contrasts**")
+
+fung_InvSimp_AVA_Year_test %>% kable(caption = "**Fungal Inverse Simpson AVA/Vintage interaction test**")
+fung_InvSimp_AVA_test %>% kable(caption = "**Fungal Inverse Simpson AVA test**")
+fung_InvSimp_AVA_posthoc$contrasts %>%
+  tidy() %>%
+  select(!null.value) %>%
+  mutate(signif = stars.pval(adj.p.value)) %>%
+  kable(caption = "**Fungal Inverse Simpson AVA contrasts**")
+fung_InvSimp_Year_test %>% kable(caption = "**Fungal Inverse Simpson Vintage test**")
+fung_InvSimp_Year_posthoc$contrasts %>%
+  tidy() %>%
+  select(!null.value) %>%
+  mutate(signif = stars.pval(p.value)) %>%
+  kable(caption = "**Fungal Inverse Simpson Vintage contrasts**")
+```

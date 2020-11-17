@@ -101,7 +101,7 @@ Figure_4_bacterial_beta_diversity <- beta_div_16s[[1]]
 # add annotation with patchwork
 Figure_4_bacterial_beta_diversity <- Figure_4_bacterial_beta_diversity+plot_annotation(tag_levels = "A")&
   theme(plot.title = element_text(hjust = 0.3))
-ggsave("Figures_and_tables_check/Figure_4_bacterial_beta_diversity.pdf", Figure_4_bacterial_beta_diversity, width = 6.5,height = 7.5,units = "in" )
+#ggsave("Figures_and_tables_check/Figure_4_bacterial_beta_diversity.pdf", Figure_4_bacterial_beta_diversity, width = 6.5,height = 7.5,units = "in" )
 
 #mantel tests
 
@@ -117,7 +117,7 @@ Figure_5_fungal_beta_diversity <- beta_div_its[[1]]
 #add annotation with patchwork
 Figure_5_fungal_beta_diversity <- Figure_5_fungal_beta_diversity+plot_annotation(tag_levels = "A")&
   theme(plot.title = element_text(hjust = 0.3))
-ggsave("Figures_and_tables_check/Figure_5_fungal_beta_diversity.pdf", Figure_5_fungal_beta_diversity, width = 6.5,height = 7.5,units = "in"  )
+#ggsave("Figures_and_tables_check/Figure_5_fungal_beta_diversity.pdf", Figure_5_fungal_beta_diversity, width = 6.5,height = 7.5,units = "in"  )
 
 #mantel tests
 physeq_mantel(must_its_2016)
